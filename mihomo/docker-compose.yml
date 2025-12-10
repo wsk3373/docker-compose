@@ -6,7 +6,7 @@ services:
     image: ghcr.io/metacubex/metacubexd
     restart: always
     ports:
-      - '801:80'
+      - '9090:80'
 
   # optional
   meta:
@@ -19,5 +19,5 @@ services:
     cap_add:
       - ALL
     volumes:
-      - /root:/root/.config/mihomo
       - /dev/net/tun:/dev/net/tun
+      - config:/.config/mihomo

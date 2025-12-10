@@ -1,0 +1,12 @@
+# docker-compose.yml（所有节点通用）
+services:
+  derper:
+    image: tailscale/derper:latest
+    restart: always
+    ports:
+      - "8443:8443/tcp"
+      - "3478:3478/udp"
+    volumes:
+      - /root/.acme.sh/grep2000.com_ecc:/app/certs
+    env_file:
+      - .env                                          # ← 每台服务器只改这一个文件
