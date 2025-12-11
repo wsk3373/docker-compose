@@ -22,7 +22,7 @@ RUN apk add --no-cache ca-certificates tzdata
 ENV TZ=Asia/Shanghai
 COPY --from=builder /usr/bin/mihomo /usr/bin/mihomo
 COPY config/ /etc/mihomo/
-EXPOSE 7890 7891 9090 53/udp
+EXPOSE 7890 7891 9090 711 53/udp
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
