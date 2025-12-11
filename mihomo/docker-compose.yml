@@ -1,4 +1,3 @@
-version: '3'
 
 services:
   metacubexd:
@@ -11,7 +10,7 @@ services:
   # optional
   meta:
     container_name: meta
-    image: ghcr.io/metacubex/metacubexd
+    image: docker.io/metacubex/mihomo:latest
     restart: always
     pid: host
     ipc: host
@@ -20,4 +19,4 @@ services:
       - ALL
     volumes:
       - /dev/net/tun:/dev/net/tun
-      - ./config:/.config/mihomo
+      - ./config:/etc/mihomo
