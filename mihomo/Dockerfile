@@ -1,5 +1,7 @@
 # 官方中国加速地址（永远有效）
 FROM --platform=$BUILDPLATFORM docker.m.daocloud.io/golang:1.23-alpine AS builder
+ENV HTTP_PROXY="http://172.24.140.254:710"
+ENV HTTPS_PROXY="http://172.24.140.254:710"
 
 # 直接从 GitHub 下载二进制（国内加速节点，超快）
 RUN arch=$(uname -m) && \
