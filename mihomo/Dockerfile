@@ -17,6 +17,8 @@ RUN arch=$(uname -m) && \
 
 # 运行时也用官方中国加速地址
 FROM docker.m.daocloud.io/alpine:latest
+ENV HTTP_PROXY="http://172.24.140.254:710"
+ENV HTTPS_PROXY="http://172.24.140.254:710"
 
 RUN apk add --no-cache ca-certificates tzdata
 ENV TZ=Asia/Shanghai
