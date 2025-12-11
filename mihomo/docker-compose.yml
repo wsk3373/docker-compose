@@ -11,7 +11,7 @@ services:
   # optional
   meta:
     container_name: meta
-    image: metaubu/mihomo:latest
+    image: ghcr.io/metacubex/metacubexd
     restart: always
     pid: host
     ipc: host
