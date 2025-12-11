@@ -19,4 +19,4 @@ services:
       - ALL
     volumes:
       - /dev/net/tun:/dev/net/tun
-      - ./config:/.config/mihomo
+      - ${PWD}/config:/.config/mihomo
