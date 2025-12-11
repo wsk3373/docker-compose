@@ -1,4 +1,3 @@
-
 services:
   metacubexd:
     container_name: metacubexd
@@ -10,7 +9,7 @@ services:
   # optional
   meta:
     container_name: meta
-    image: docker.io/metacubex/mihomo:latest
+    image: docker.io/metacubex/mihomo:Alpha
     restart: always
     pid: host
     ipc: host
@@ -19,4 +18,4 @@ services:
       - ALL
     volumes:
       - /dev/net/tun:/dev/net/tun
-      - ${PWD}/config:/.config/mihomo
+      - ./config:/root/.config/mihomo
