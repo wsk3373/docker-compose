@@ -22,12 +22,12 @@ geox-url:
   asn: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
 
 
-mixed-port: 720
+mixed-port: 711
 ipv6: true
 allow-lan: true
 unified-delay: false
 tcp-concurrent: true
-external-controller: 0.0.0.0:9090
+external-controller: 0.0.0.0:9091
 external-ui: ui
 external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 
@@ -88,21 +88,21 @@ dns:
       - '+.facebook.com'
       - '+.youtube.com'
 
-# sniffer:
-#   enable: true
-#   sniff:
-#     HTTP:
-#       ports: [80, 8080-8880]
-#       override-destination: true
-#     TLS:
-#       ports: [443, 8443]
-#       override-destination: true
-#     QUIC:
-#       ports: [443, 8443]
-#       override-destination: true
-#   skip-domain:
-#     - "Mijia Cloud"
-#     - "+.push.apple.com"
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+      override-destination: true
+    QUIC:
+      ports: [443, 8443]
+      override-destination: true
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"
 
 
 
