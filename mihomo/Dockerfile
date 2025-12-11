@@ -1,7 +1,12 @@
 # 官方中国加速地址（永远有效）
+
+ARG HTTP_PROXY="http://172.24.140.254:710"
+ARG HTTPS_PROXY="http://172.24.140.254:710"
+
 FROM --platform=$BUILDPLATFORM docker.m.daocloud.io/golang:1.23-alpine AS builder
-ENV HTTP_PROXY="http://172.24.140.254:710"
-ENV HTTPS_PROXY="http://172.24.140.254:710"
+
+ENV HTTP_PROXY=$HTTP_PROXY
+ENV HTTPS_PROXY=$HTTPS_PROXY
 
 # 直接从 GitHub 下载二进制（国内加速节点，超快）
 RUN arch=$(uname -m) && \
@@ -17,8 +22,9 @@ RUN arch=$(uname -m) && \
 
 # 运行时也用官方中国加速地址
 FROM docker.m.daocloud.io/alpine:latest
-ENV HTTP_PROXY="http://172.24.140.254:710"
-ENV HTTPS_PROXY="http://172.24.140.254:710"
+
+ENV HTTP_PROXY=$HTTP_PROXY
+ENV HTTPS_PROXY=$HTTPS_PROXY
 
 RUN apk add --no-cache ca-certificates tzdata
 ENV TZ=Asia/Shanghai
