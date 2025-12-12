@@ -9,9 +9,9 @@ services:
   meta:
     build:
       context: .
-      args:
-        HTTP_PROXY: ${HTTP_PROXY}
-        HTTPS_PROXY: ${HTTPS_PROXY}
+      # args:
+      #   HTTP_PROXY: ${HTTP_PROXY}
+      #   HTTPS_PROXY: ${HTTPS_PROXY}
     image: my-mihomo:latest
     container_name: meta
     restart: always
