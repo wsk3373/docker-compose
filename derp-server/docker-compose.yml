@@ -9,7 +9,7 @@ services:
     ports:
       - "3478:3478/udp"
       - "3479:3479/udp"
-      - "5349:5349/tcp"
+      - "5349:443/tcp"
     environment:
       - DERP_HOST=derp-aly.grep2000.com
       - DERP_CERT_MODE=manual
