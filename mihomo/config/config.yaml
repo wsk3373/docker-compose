@@ -10,7 +10,7 @@ proxy-providers:
   provider1:
     <<: *p
     url: "https://c.bbydy.org/api/bby/client/subscribe?token=91592ffff0157c46a67d0df25f6e9272"
-    proxy: "http://172.24.140.254:710"
+    proxy: "公司代理"
 
 
 ipv6: true
@@ -75,6 +75,18 @@ proxies:
 - name: "直连"
   type: direct
   udp: true
+
+- name: "公司代理"
+  type: http
+  server: 172.24.140.254
+  port: 710
+  # 如果代理需要认证：
+  # username: "用户名"
+  # password: "密码"
+  # 如果代理证书有问题：
+  skip-cert-verify: true
+  # udp: true  # 如果支持UDP
+
 proxy-groups:
 - {name: 默认, type: select, proxies: [自动选择, 直连, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 美国, 美国自动选择, 其它地区, 全部节点], icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Proxy.png"}
 - {name: Google, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Google_Search.png"}
