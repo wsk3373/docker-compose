@@ -4,7 +4,8 @@ ARG HTTP_PROXY="http://172.24.140.254:710"
 ARG HTTPS_PROXY="http://172.24.140.254:710"
 
 FROM --platform=$BUILDPLATFORM docker.m.daocloud.io/golang:1.23-alpine AS builder
-
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
 ENV HTTP_PROXY=$HTTP_PROXY
 ENV HTTPS_PROXY=$HTTPS_PROXY
 
@@ -22,7 +23,8 @@ RUN arch=$(uname -m) && \
 
 # 运行时也用官方中国加速地址
 FROM docker.m.daocloud.io/alpine:latest
-
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
 ENV HTTP_PROXY=$HTTP_PROXY
 ENV HTTPS_PROXY=$HTTPS_PROXY
 
