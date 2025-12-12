@@ -1,12 +1,23 @@
 # docker-compose.yml（所有节点通用）
+# version: '3.8'
+
 services:
   derper:
-    image: tailscale/derper:latest
-    restart: always
+    build: .
+    container_name: derper
+    restart: unless-stopped
     ports:
-      - "8443:8443/tcp"
       - "3478:3478/udp"
+      - "3479:3479/udp"
+      - "5349:5349/tcp"
+    environment:
+      - DERP_HOST=your-hostname.com
+      - DERP_CERT_MODE=manual
+      - DERP_CERT_DIR=/app/certs
     volumes:
+      - ./certs:/app/certs
       - /root/.acme.sh/grep2000.com_ecc:/app/certs
+    command: --hostname=your-hostname.com --certmode=manual --certdir=/app/certs --stun
+  
     env_file:
       - .env                                          # ← 每台服务器只改这一个文件

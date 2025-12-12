@@ -1,0 +1,17 @@
+services:
+  derper:
+    image: runyf/derper:latest
+    container_name: derper
+    restart: always
+    network_mode: host
+    volumes:
+      - ./certs/:/app/certs
+      - /var/run/tailscale/:/var/run/tailscale/
+    environment:
+      DERP_CERT_MODE: manual
+      DERP_ADDR: :12345
+      DERP_DOMAIN: hs-admin
+      DERP_VERIFY_CLIENTS: false
+
+    env_file:
+      - .env                                          # ← 每台服务器只改这一个文件
