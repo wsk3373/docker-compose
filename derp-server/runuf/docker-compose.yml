@@ -5,13 +5,13 @@ services:
     restart: always
     network_mode: host
     volumes:
-      - ./certs/:/app/certs
+      - ~/.acme.sh/grep2000.com_ecc:/app/certs
       - /var/run/tailscale/:/var/run/tailscale/
     environment:
       DERP_CERT_MODE: manual
       DERP_ADDR: :12345
-      DERP_DOMAIN: hs-admin
+      DERP_DOMAIN: derp-aly.grep2000.com
       DERP_VERIFY_CLIENTS: false
-
+      DERP_HTTP_PORT: -1
     # env_file:
     #   - .env                                          # ← 每台服务器只改这一个文件
