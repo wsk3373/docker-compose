@@ -9,6 +9,6 @@ RUN apk add --no-cache ca-certificates
 
 COPY --from=builder /go/bin/derper /usr/local/bin/derper
 
-EXPOSE 3478/udp 3479/udp 5349/tcp
+EXPOSE 3478/udp 3479/udp 5349/tcp 443/tcp
 
 ENTRYPOINT ["derper"]
