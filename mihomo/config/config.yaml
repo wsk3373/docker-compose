@@ -15,8 +15,8 @@ proxy-providers:
 
 ipv6: true
 allow-lan: true
-mixed-port: 711
-external-controller: 0.0.0.0:9091
+mixed-port: 7890
+external-controller: 0.0.0.0:9090
 external-ui: ui
 external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 profile:
