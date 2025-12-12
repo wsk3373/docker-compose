@@ -16,7 +16,7 @@ services:
       - DERP_CERT_DIR=/app/certs
     volumes:
       - ./certs:/app/certs
-      - /root/.acme.sh/grep2000.com_ecc:/app/certs
+
     command: --hostname=your-hostname.com --certmode=manual --certdir=/app/certs --stun
   
     env_file:
