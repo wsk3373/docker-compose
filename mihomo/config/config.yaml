@@ -10,7 +10,7 @@ proxy-providers:
   provider1:
     <<: *p
     url: "https://c.bbydy.org/api/bby/client/subscribe?token=91592ffff0157c46a67d0df25f6e9272"
-    proxy: "公司代理"
+#    proxy: "公司代理"
 
 
 ipv6: true
