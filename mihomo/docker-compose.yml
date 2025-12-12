@@ -7,16 +7,20 @@ services:
       - '9091:80'
 
   # optional
-  meta:
-    container_name: meta
-    image: docker.io/metacubex/mihomo:Alpha
-    restart: always
-    pid: host
-    ipc: host
-    network_mode: host
-    cap_add:
-      - ALL
 
+  meta:
+    build:
+      context: .
+      args:
+        HTTP_PROXY: ${HTTP_PROXY}
+        HTTPS_PROXY: ${HTTPS_PROXY}
+    image: my-mihomo:latest
+    container_name: meta
+    restart: always
+    network_mode: host
+    volumes:
+      - /dev/net/tun:/dev/net/tun
+      - ./config:/root/.config/mihomo
     environment:
       - HTTP_PROXY=${HTTP_PROXY}
       - HTTPS_PROXY=${HTTPS_PROXY}
@@ -24,6 +28,3 @@ services:
       - https_proxy=${HTTPS_PROXY}
       - ALL_PROXY=${HTTP_PROXY}
       
-    volumes:
-      - /dev/net/tun:/dev/net/tun
-      - ./config:/root/.config/mihomo
