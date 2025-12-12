@@ -27,17 +27,17 @@ tun:
   enable: true
   stack: system                  # 或 gvisor
   dns-hijack:
-    - “any:53”                   # 劫持所有DNS查询到mihomo（端口53）
+    - "any:53"                   # 劫持所有DNS查询到mihomo（端口53）
   auto-route: true               # 自动设置系统路由，将流量导向tun设备
   auto-detect-interface: true    # 自动检测出口网卡
 
  # 【核心】设置不通过tun（即不通过mihomo）的IP段
 
   bypass-tun:
-    - “10.8.0.0/24”              # 你的VPN网段（非常重要！）
-    - “192.168.0.0/16”           # 你的本地局域网段
-    - “172.16.0.0/12”            # 常见的Docker和私有网络段
-    - “127.0.0.0/8”              # 本地回环地址
+    - "10.8.0.0/24"             # 你的VPN网段（非常重要！）
+    - "192.168.0.0/16"         # 你的本地局域网段
+    - "172.16.0.0/12"            # 常见的Docker和私有网络段
+    - "127.0.0.0/8"              # 本地回环地址
 
 dns:
   enable: true
