@@ -22,6 +22,17 @@ services:
     volumes:
       - /dev/net/tun:/dev/net/tun
       - ./config:/root/.config/mihomo
+
+    # 方案A：最简单（推荐测试用）
+    privileged: true
+
+    # 方案B：更安全
+    # cap_add:
+    #   - NET_ADMIN
+    #   - NET_RAW  
+    #   - SYS_ADMIN
+
+    
     # environment:
     #   - HTTP_PROXY=${HTTP_PROXY}
     #   - HTTPS_PROXY=${HTTPS_PROXY}
