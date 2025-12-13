@@ -1,17 +1,20 @@
 services:
   derper:
-    image: runyf/derper:latest
+    image: fredliang/derper:latest
     container_name: derper
-    restart: always
-    network_mode: host
-    volumes:
-      - ./certs:/app/certs
-      - /var/run/tailscale/:/var/run/tailscale/
+    restart: unless-stopped
+    ports:
+      - "80:80"          # Let's Encrypt 挑战需要
+      - "443:443"        # HTTPS 服务
+      - "3478:3478/udp"  # STUN 服务
     environment:
-      DERP_CERT_MODE: manual
-      DERP_ADDR: :443
-      DERP_DOMAIN: derp-aly.grep2000.com
-      DERP_VERIFY_CLIENTS: false
-      DERP_HTTP_PORT: -1
+      - DERP_DOMAIN=derp-aly.grep2000.com
+      - DERP_CERT_MODE=manual
+      - DERP_ADDR=:443
+      - DERP_STUN=true
+      - DERP_VERIFY_CLIENTS=false
+      - DERP_HOSTNAME=derp-aly.grep2000.com
+    volumes:
+      - ./certs:/app/certs  # 持久化证书
     env_file:
       - ../.env                                          # ← 每台服务器只改这一个文件
