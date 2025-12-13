@@ -4,7 +4,6 @@ services:
     container_name: derper
     restart: unless-stopped
     ports:
-      - "80:80"          # Let's Encrypt 挑战需要
       - "443:443"        # HTTPS 服务
       - "3478:3478/udp"  # STUN 服务
     environment:
