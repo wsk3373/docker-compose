@@ -9,9 +9,9 @@ services:
       - /var/run/tailscale/:/var/run/tailscale/
     environment:
       DERP_CERT_MODE: manual
-      DERP_ADDR: :12345
+      DERP_ADDR: :443
       DERP_DOMAIN: derp-aly.grep2000.com
       DERP_VERIFY_CLIENTS: false
       DERP_HTTP_PORT: -1
-    # env_file:
-    #   - .env                                          # ← 每台服务器只改这一个文件
+    env_file:
+      - ../.env                                          # ← 每台服务器只改这一个文件
