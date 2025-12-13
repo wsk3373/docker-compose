@@ -4,12 +4,9 @@
 [submodule "Duix.Heygem"]
 	path = Duix.Heygem
 	url = https://github.com/duixcom/Duix.Heygem.git
-[submodule "derper-docker"]
-	path = derper-docker
-	url = https://github.com/fredliang44/derper-docker.git
-[submodule "derper-docker-arounyf"]
-	path = derper-docker-arounyf
+[submodule "derper/docker-arounyf"]
+	path = derper/docker-arounyf
 	url = https://github.com/arounyf/derper.git
-[submodule "docker-derper-fredliang44"]
-	path = docker-derper-fredliang44
+[submodule "derper/docker-fredliang44"]
+	path = derper/docker-fredliang44
 	url = https://github.com/fredliang44/derper-docker.git
