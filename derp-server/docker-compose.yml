@@ -16,7 +16,7 @@ services:
     volumes:
       - ./certs:/app/certs
 
-    command: --hostname=derp-aly.grep2000.com --certmode=manual --certdir=/app/certs --stun --addr=443 --stun-port=3478 --verify-clients=false
+    command: --hostname=derp-aly.grep2000.com --certmode=manual --certdir=/app/certs --stun -a :443 --stun-port=3478 --verify-clients=false
   
     env_file:
       - .env                                          # ← 每台服务器只改这一个文件
