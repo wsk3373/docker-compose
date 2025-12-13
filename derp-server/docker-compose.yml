@@ -8,7 +8,6 @@ services:
     restart: unless-stopped
     ports:
       - "3478:3478/udp"
-      - "3479:3479/udp"
       - "5349:443/tcp"
     environment:
       - DERP_HOST=derp-aly.grep2000.com
@@ -17,7 +16,7 @@ services:
     volumes:
       - ./certs:/app/certs
 
-    command: --hostname=derp-aly.grep2000.com --certmode=manual --certdir=/app/certs --stun
+    command: --hostname=derp-aly.grep2000.com --certmode=manual --certdir=/app/certs --stun --addr=443 --stun-port=3478 --verify-clients=false
   
     env_file:
       - .env                                          # ← 每台服务器只改这一个文件
