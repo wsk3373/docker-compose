@@ -13,6 +13,8 @@ services:
       - DERP_HOST=derp-aly.grep2000.com
       - DERP_CERT_MODE=manual
       - DERP_CERT_DIR=/app/certs
+      - DERP_DOMAIN=derp-aly.grep2000.com  # ⭐ 必须设置
+      - DERP_CERT_MODE=letsencrypt   # 或手动证书
     volumes:
       - ./certs:/app/certs
     entrypoint: ["sh", "-c", "rm -rf /var/lib/derper && exec derper"]
