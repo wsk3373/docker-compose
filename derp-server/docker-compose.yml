@@ -11,7 +11,7 @@ services:
       - "443:443/tcp"
     # volumes:
     #   - ./certs:/app/certs
-    entrypoint: ["sh", "-c", "rm -rf /var/lib/derper && exec derper"]
+    # entrypoint: ["sh", "-c", "rm -rf /var/lib/derper && exec derper"]
     command: >
       --verify-clients=false 
       --mesh-psk-file=/dev/null  # 明确指定
