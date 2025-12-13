@@ -14,6 +14,6 @@ services:
       - DERP_VERIFY_CLIENTS=false
       - DERP_HOSTNAME=derp-aly.grep2000.com
     volumes:
-      - ./certs:/app/certs  # 持久化证书
+      - ../certs:/app/certs  # 持久化证书
     env_file:
       - ../.env                                          # ← 每台服务器只改这一个文件
