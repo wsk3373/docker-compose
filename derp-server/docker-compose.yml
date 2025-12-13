@@ -15,7 +15,7 @@ services:
       - DERP_CERT_DIR=/app/certs
     volumes:
       - ./certs:/app/certs
-
+    entrypoint: ["sh", "-c", "rm -rf /var/lib/derper && exec derper"]
     command: >
       --hostname=derp-aly.grep2000.com 
       --certmode=manual 
