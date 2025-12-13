@@ -15,5 +15,6 @@ services:
       - DERP_HOSTNAME=derp-aly.grep2000.com
     volumes:
       - ../certs:/app/certs  # 持久化证书
+    entrypoint: ["sh", "-c", "rm -rf /var/lib/derper && exec derper"]
     env_file:
       - ../.env                                          # ← 每台服务器只改这一个文件
