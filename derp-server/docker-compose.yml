@@ -9,8 +9,8 @@ services:
     ports:
       - "3478:3478/udp"
       - "443:443/tcp"
-    volumes:
-      - ./certs:/app/certs
+    # volumes:
+    #   - ./certs:/app/certs
     entrypoint: ["sh", "-c", "rm -rf /var/lib/derper && exec derper"]
     command: >
       --verify-clients=false 
