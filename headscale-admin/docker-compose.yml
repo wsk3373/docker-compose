@@ -8,7 +8,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.services.headscale-admin.loadbalancer.server.port=80"
-      - "traefik.http.routers.headscale-admin.rule=Host(`headscale.165.22.241.196.nip.io`) && PathPrefix(`/admin`)"
+      - "traefik.http.routers.headscale-admin.rule=Host(`headscale.grep2000.com`) && PathPrefix(`/admin`)"
       - "traefik.http.routers.headscale-admin.entrypoints=websecure"
       - "traefik.http.routers.headscale-admin.tls.certresolver=letsencrypt"
 networks:
