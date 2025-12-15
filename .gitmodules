@@ -7,3 +7,6 @@
 [submodule "docker-derper-fredliang44"]
 	path = docker-derper-fredliang44
 	url = https://github.com/wsk3373/docker-derper-fredliang44.git
+[submodule "docker-derper-arounyf"]
+	path = docker-derper-arounyf
+	url = git@github.com:wsk3373/docker-derper-arounyf.git
