@@ -8,7 +8,7 @@ services:
     image: dreamacro/clash-premium
     container_name: clash-premium
     volumes:
-      - ./profiles/config.yaml:/root/.config/clash/config.yaml
+      - /root/.backup/mihomo-config.yaml:/root/.config/clash/config.yaml
       - ./profiles:/root/.config/clash/profiles
       # - ./ui:/ui # dashboard volume
     ports:
