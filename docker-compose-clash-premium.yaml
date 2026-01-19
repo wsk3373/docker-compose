@@ -1,30 +1,31 @@
-version: '3.3'
 services:
-    clash:
-        container_name: clash
-        image: dreamacro/clash-premium
-        restart: always
-        privileged: true
-        devices:
-          - /dev/net/tun
-        volumes:
-          - /home/lilin/.config/clash/config.yaml:/root/.config/clash/config.yaml
-          #- /home/lilin/.config/clash/ui:/root/ui
-        network_mode: host
-        # networks:
-        #   macnet:
-        #       ipv4_address: 192.168.88.20
-
-    yacd:
-        container_name: yacd
-        image: ghcr.io/haishanh/yacd:master
-        restart: always
-        ports:
-          - "880:80"
-        # command: ["-p", "801"]
-        depends_on:
-          - clash
-
-# networks:
-#   macnet:
-#     external: true
+  # See https://github.com/Dreamacro/clash/wiki/Running-Clash-as-a-service#docker
+  clash:
+    # ghcr.io/dreamacro/clash
+    # ghcr.io/dreamacro/clash-premium
+    # dreamacro/clash
+    # dreamacro/clash-premium
+    image: dreamacro/clash-premium
+    container_name: clash-premium
+    volumes:
+      - ./profiles/config.yaml:/root/.config/clash/config.yaml
+      - ./profiles:/root/.config/clash/profiles
+      # - ./ui:/ui # dashboard volume
+    ports:
+      - "7890:7890"
+      - "7891:7891"
+      - "9090:9090" # external controller (Restful API)
+    # TUN
+    # cap_add:
+    #   - NET_ADMIN
+    # devices:
+    #   - /dev/net/tun
+    restart: unless-stopped
+    network_mode: "bridge" # or "host" on Linux
+  # See https://github.com/Dreamacro/clash/wiki/Running-Clash-as-a-service#docker
+  yacd:
+    image: ghcr.io/haishanh/yacd:master
+    container_name: clash-yacd
+    ports:
+      - "1234:80"
+    restart: unless-stopped
