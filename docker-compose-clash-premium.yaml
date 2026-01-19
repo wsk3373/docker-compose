@@ -12,7 +12,7 @@ services:
       - ./profiles:/root/.config/clash/profiles
       # - ./ui:/ui # dashboard volume
     ports:
-      - "7890:7890"
+      - "710:7890"
       - "7891:7891"
       - "9090:9090" # external controller (Restful API)
     # TUN
@@ -27,5 +27,5 @@ services:
     image: ghcr.io/haishanh/yacd:master
     container_name: clash-yacd
     ports:
-      - "1234:80"
+      - "9091:80"
     restart: unless-stopped
