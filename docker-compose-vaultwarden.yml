@@ -6,11 +6,11 @@ services:
     container_name: vaultwarden
     restart: unless-stopped
     volumes:
-      - ./vw-data:/data
+      - ~/.vw-data:/data
     # environment:
     #   - DOMAIN=https://vault.grep2000.com   # 建议设置
     networks:
-      - traefik_net          # 如果想让 Traefik 直接访问容器，可以加这个网络
+      - traefik_net # 如果想让 Traefik 直接访问容器，可以加这个网络
     # ports:
     #   - "8080:8080"        # 不建议直接暴露公网端口
 
